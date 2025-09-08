@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small convenience to integrate with existing CSS variables */
+:root {
+  --tw-prose-body: var(--darkgray);
+}

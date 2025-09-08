@@ -1,6 +1,6 @@
 import Content from "./pages/Content"
 import TagContent from "./pages/TagContent"
-import FolderContent from "./pages/FolderContent"
+import FolderContent from "./pages/404"
 import NotFound from "./pages/404"
 import ArticleTitle from "./ArticleTitle"
 import Darkmode from "./Darkmode"
@@ -23,6 +23,12 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import ProfilePic from "./ProfilePic"
+import ResumeDownload from "./ResumeDownload"
+import LinkedInButton from "./LinkedInButton"
+import Info from "./Info"
+import WhatsAppButton from "./WhatsAppButton"
+ 
 
 export {
   ArticleTitle,
@@ -50,4 +56,9 @@ export {
   Comments,
   Flex,
   ConditionalRender,
+  ProfilePic,
+  ResumeDownload,
+  LinkedInButton,
+  Info,
+  WhatsAppButton,
 }
