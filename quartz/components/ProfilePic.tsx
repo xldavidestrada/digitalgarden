@@ -7,14 +7,14 @@ const ProfilePic: QuartzComponent = ({ displayClass }: QuartzComponentProps) => 
       <button class="profile-pic-button" aria-label="View full profile picture">
         <img src={src} alt="Profile picture" width="200" height="200"loading="lazy" />
       </button>
-      <div class="profile-pic-modal" id="profile-pic-modal">
+      {/* <div class="profile-pic-modal" id="profile-pic-modal">
         <div class="modal-overlay">
           <div class="modal-content">
             <button class="modal-close" aria-label="Close modal">&times;</button>
             <img src={src} alt="Profile picture - Full size" />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
