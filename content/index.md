@@ -2,7 +2,7 @@
 title: Welcome to my Digital Garden
 ---
 
-This site is where I will be my interests, ideas, and projects that inspire me. 
+This site is where I will be sharing my interests, ideas, and projects that inspire me. 
 
 Whether you're here to connect, collaborate, or just browse, welcome!
 
