@@ -8,7 +8,7 @@ const ResumeDownload: QuartzComponent = ({ fileData, displayClass }: QuartzCompo
   return (
     <div class="resume-download-wrapper">
       <a 
-        href="https://app.enhancv.com/share/42c644fc"
+        href="https://rxresume.org/hello/david-estrada-resume"
         class={classNames(displayClass, "resume-download-btn")}
         download="resume.pdf"
         target="_blank"
