@@ -209,7 +209,7 @@ export function renderPage(
     afterBody,
     left,
     right,
-    footer: Footer,
+
   } = components
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
@@ -260,7 +260,7 @@ export function renderPage(
               </div>
             </div>
             {RightComponent}
-            <Footer {...componentData} />
+            {/* <Footer {...componentData} /> */}
           </Body>
         </div>
       </body>
