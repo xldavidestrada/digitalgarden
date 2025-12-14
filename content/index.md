@@ -1,5 +1,5 @@
 ---
-title: Professional Profile
+title: Resume
 ---
 
 # Software Development Manager
@@ -8,7 +8,7 @@ title: Professional Profile
 
 <div class="skills-container">
 
-## Hard Skills
+## Skills
 
 <div class="skill-category">
 <h3>Agile & Leadership</h3>
