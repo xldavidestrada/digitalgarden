@@ -34,22 +34,22 @@ ResumeDownload.css = `
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: #ea4335;
+  color: white;
   text-decoration: none;
   border-radius: 50%;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   transition: all 0.2s ease;
-  border: 1px solid var(--lightgray);
+  border: 1px solid #ea4335;
   position: relative;
 }
 
 .resume-download-btn:hover {
-  background-color: var(--lightgray);
-  color: var(--darkgray);
+  background-color: #c5221f;
+  border-color: #c5221f;
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow);
-  border-color: var(--gray);
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.25);
 }
 
 .resume-download-btn:active {

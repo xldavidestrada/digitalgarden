@@ -4,7 +4,9 @@
   min-width: fit-content;
   max-width: 14rem;
   @media all and ($mobile) {
-    flex-grow: 0.3;
+    flex-grow: 0;
+    width: auto;
+    max-width: 10rem;
   }
 
   & > .search-button {

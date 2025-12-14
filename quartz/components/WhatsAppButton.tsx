@@ -30,21 +30,22 @@ WhatsAppButton.css = `
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #25D366;
+  background-color: #39ae41;
   color: white;
   text-decoration: none;
   border-radius: 50%;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   transition: all 0.2s ease;
-  border: 1px solid #25D366;
+  border: 1px solid #39ae41;
   position: relative;
 }
 
 .whatsapp-btn:hover {
-  background-color: #128C7E;
-  border-color: #128C7E;
+  background-color: #2e8b34;
+  border-color: #2e8b34;
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 4px 12px rgba(57, 174, 65, 0.25);
 }
 
 .whatsapp-btn:active {
@@ -52,7 +53,7 @@ WhatsAppButton.css = `
 }
 
 .whatsapp-btn i {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
 }
 
 /* Tooltip styles */

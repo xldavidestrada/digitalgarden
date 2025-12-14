@@ -1,17 +1,9 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import ResumeDownload from "./ResumeDownload"
-import LinkedInButton from "./LinkedInButton"
-import WhatsAppButton from "./WhatsAppButton"
+import { classNames } from "../util/lang"
 
-const Info: QuartzComponent = (props: QuartzComponentProps) => {
-  // Get the component functions
-  const ResumeDownloadComponent = ResumeDownload()
-  const LinkedInButtonComponent = LinkedInButton()
-  const WhatsAppButtonComponent = WhatsAppButton()
-
+const Info: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
-    <div class="info-container">
-      <h3 class="info-title">Info</h3>
+    <div class={classNames(displayClass, "info-container")}>
       
       {/* Contacts Section */}
       <div class="info-section">
@@ -19,7 +11,12 @@ const Info: QuartzComponent = (props: QuartzComponentProps) => {
         <div class="info-items">
           <div class="info-item">
             <i class="fas fa-envelope" aria-hidden="true"></i>
-            <a href="mailto:hello@davidestrada.dev" class="info-link">hello@davidestrada.dev</a>
+            <div class="email-container">
+              <a href="mailto:hello@davidestrada.dev" class="info-link" id="email-link">hello@davidestrada.dev</a>
+              <button class="copy-btn" id="email-copy-btn" aria-label="Copy email address" data-tooltip="Copy">
+                <i class="fas fa-copy" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
           <div class="info-item">
             <i class="fas fa-phone" aria-hidden="true"></i>
@@ -33,29 +30,13 @@ const Info: QuartzComponent = (props: QuartzComponentProps) => {
           </div>
         </div>
       </div>
-
-      {/* Documents Section */}
-      <div class="info-section">
-        <h4 class="info-section-title">Documents</h4>
-        <div class="info-buttons">
-          <ResumeDownloadComponent {...props} displayClass={undefined} />
-        </div>
-      </div>
-
-      {/* Socials Section */}
-      <div class="info-section">
-        <h4 class="info-section-title">Socials</h4>
-        <div class="info-buttons">
-          <LinkedInButtonComponent {...props} displayClass={undefined} />
-          <WhatsAppButtonComponent {...props} displayClass={undefined} />
-        </div>
-      </div>
     </div>
   )
 }
 
 Info.afterDOMLoaded = `
 document.addEventListener('DOMContentLoaded', function() {
+  // Phone Reveal Logic
   const phoneRevealBtn = document.getElementById('phone-reveal-btn');
   const phoneMasked = document.getElementById('phone-masked');
   const phoneRevealed = document.getElementById('phone-revealed');
@@ -67,6 +48,29 @@ document.addEventListener('DOMContentLoaded', function() {
       phoneRevealBtn.style.display = 'none';
     });
   }
+
+  // Email Copy Logic
+  const emailCopyBtn = document.getElementById('email-copy-btn');
+  const emailLink = document.getElementById('email-link');
+
+  if (emailCopyBtn && emailLink) {
+    emailCopyBtn.addEventListener('click', function() {
+      const email = emailLink.innerText;
+      navigator.clipboard.writeText(email).then(function() {
+        // Show feedback
+        const originalIcon = emailCopyBtn.innerHTML;
+        emailCopyBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+        emailCopyBtn.setAttribute('data-tooltip', 'Copied!');
+        
+        setTimeout(function() {
+          emailCopyBtn.innerHTML = originalIcon;
+          emailCopyBtn.setAttribute('data-tooltip', 'Copy');
+        }, 2000);
+      }).catch(function(err) {
+        console.error('Could not copy text: ', err);
+      });
+    });
+  }
 });
 `
 
@@ -75,16 +79,8 @@ Info.css = `
   background: var(--light);
   border: 1px solid var(--lightgray);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   margin-bottom: 1rem;
-}
-
-.info-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: var(--dark);
-  font-family: var(--titleFont);
 }
 
 .info-section {
@@ -97,129 +93,103 @@ Info.css = `
 
 .info-section-title {
   font-size: 0.9rem;
-  font-weight: 500;
-  margin: 0 0 0.5rem 0;
-  color: var(--darkgray);
-  font-family: var(--bodyFont);
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 0.75rem 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  padding-left: 0.5rem;
 }
 
 .info-items {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.info-buttons {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: flex-start;
-  align-items: center;
+  padding-left: 0.5rem;
 }
 
 .info-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  color: var(--dark);
+  font-weight: 500;
 }
 
 .info-item i {
-  width: 16px;
-  color: var(--gray);
-  font-size: 0.85rem;
+  width: 1rem;
+  text-align: center;
+  color: var(--secondary);
+  flex-shrink: 0;
 }
 
 .info-link {
-  color: var(--secondary);
+  color: var(--dark);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .info-link:hover {
-  color: var(--tertiary);
-  text-decoration: underline;
-}
-
-.phone-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.phone-masked {
-  color: var(--gray);
-  font-size: 0.85rem;
-  font-family: monospace;
-  letter-spacing: 1px;
-}
-
-.phone-revealed {
   color: var(--secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
-  font-size: 0.85rem;
 }
 
-.phone-revealed:hover {
-  color: var(--tertiary);
-  text-decoration: underline;
+.phone-container, .email-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
 }
 
-.phone-reveal-btn {
-  background: none;
+.phone-reveal-btn, .copy-btn {
+  background: rgba(0, 0, 0, 0.05);
   border: none;
-  color: var(--gray);
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 4px;
+  color: var(--secondary);
+  padding: 0;
+  font-size: 0.8rem;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  flex-shrink: 0;
 }
 
-.phone-reveal-btn:hover {
-  background-color: var(--lightgray);
-  color: var(--dark);
+.phone-reveal-btn:hover, .copy-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
-.phone-reveal-btn:active {
-  transform: scale(0.95);
+/* Tooltip for copy button */
+.copy-btn {
+  position: relative;
 }
 
-.info-label {
-  color: var(--darkgray);
-  font-size: 0.8rem;
-  margin-left: 0.25rem;
+.copy-btn[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-bottom: 5px;
+  opacity: 0.9;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .info-container {
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .info-title {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .info-section {
-    margin-bottom: 0.75rem;
-  }
-  
-  .info-item {
-    font-size: 0.8rem;
-  }
+.info-buttons {
+  display: flex;
+  gap: 0.75rem;
 }
-
-${ResumeDownload().css ?? ""}
-${LinkedInButton().css ?? ""}
-${WhatsAppButton().css ?? ""}
 `
 
 export default (() => Info) satisfies QuartzComponentConstructor

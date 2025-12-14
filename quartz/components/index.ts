@@ -28,6 +28,7 @@ import ResumeDownload from "./ResumeDownload"
 import LinkedInButton from "./LinkedInButton"
 import Info from "./Info"
 import WhatsAppButton from "./WhatsAppButton"
+import ProfileCard from "./ProfileCard"
  
 
 export {
@@ -61,4 +62,5 @@ export {
   LinkedInButton,
   Info,
   WhatsAppButton,
+  ProfileCard,
 }

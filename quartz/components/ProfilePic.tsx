@@ -4,9 +4,11 @@ const ProfilePic: QuartzComponent = ({ displayClass }: QuartzComponentProps) => 
   const src = "/static/pictures/profile-pic.jpeg"
   return (
     <div class={`profile-pic ${displayClass ?? ""}`}>
-      <button class="profile-pic-button" aria-label="View full profile picture">
-        <img src={src} alt="Profile picture" width="200" height="200"loading="lazy" />
-      </button>
+      <div class="profile-pic-wrapper">
+        <button class="profile-pic-button" aria-label="View full profile picture">
+          <img src={src} alt="Profile picture" width="200" height="200" loading="lazy" />
+        </button>
+      </div>
       {/* <div class="profile-pic-modal" id="profile-pic-modal">
         <div class="modal-overlay">
           <div class="modal-content">
@@ -85,12 +87,18 @@ ProfilePic.css = `
   margin-bottom: 0;
 }
 
+.profile-pic-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .profile-pic-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   transition: transform 0.2s ease;
+  display: block;
 }
 
 .profile-pic-button:hover {

@@ -22,21 +22,21 @@ LinkedInButton.css = `
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: var(--light);
-  color: #0077b5;
+  background-color: #0077b5;
+  color: white;
   text-decoration: none;
   border-radius: 50%;
   font-size: 1.125rem;
   transition: all 0.2s ease;
-  border: 1px solid var(--lightgray);
+  border: 1px solid #0077b5;
 }
 
 .linkedin-btn:hover {
-  background-color: #0077b5;
+  background-color: #005582;
+  border-color: #005582;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 119, 181, 0.25);
-  border-color: #0077b5;
 }
 
 .linkedin-btn:active {
