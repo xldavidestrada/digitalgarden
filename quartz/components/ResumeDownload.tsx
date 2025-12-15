@@ -16,13 +16,33 @@ const ResumeDownload: QuartzComponent = ({ fileData, displayClass }: QuartzCompo
         aria-label="Download Resume PDF"
         data-tooltip="Download Resume PDF"
       >
-        <i class="fa-solid fa-file-pdf"></i>
+        <i class="fa-regular fa-file-pdf"></i>
       </a>
     </div>
   )
 }
 
 ResumeDownload.css = `
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .resume-download-wrapper {
   position: relative;
   display: inline-block;
@@ -34,22 +54,23 @@ ResumeDownload.css = `
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #ea4335;
-  color: white;
+  background-color: white;
+  color: #0077B5;
   text-decoration: none;
   border-radius: 50%;
   font-size: 1.5rem;
   transition: all 0.2s ease;
-  border: 1px solid #ea4335;
+  border: 1px solid #0077B5;
   position: relative;
+  animation: popIn 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
 .resume-download-btn:hover {
-  background-color: #c5221f;
-  border-color: #c5221f;
-  color: white;
+  background-color: #f5f5f5;
+  border-color: #0077B5;
+  color: #0077B5;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.25);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
 .resume-download-btn:active {
