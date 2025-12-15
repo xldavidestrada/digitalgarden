@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // Custom Animations
 @keyframes fadeInUp {
@@ -337,16 +338,67 @@ button, .button {
 // --- Sidebar Improvements ---
 
 // Sticky Sidebar
-.left {
-  position: sticky;
-  top: 2rem;
-  height: fit-content;
-  max-height: calc(100vh - 4rem);
-  overflow-y: auto;
-  scrollbar-width: none; /* Hide scrollbar for cleaner look */
-  -ms-overflow-style: none;
+@media all and ($desktop) {
+  .left {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// Dashboard Styles
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.card {
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  padding: 2rem;
+  transition: border-color 0.2s ease;
+  height: 100%;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
   
-  &::-webkit-scrollbar {
-    display: none;
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  
+  &:hover {
+    border-color: var(--secondary);
+    background: var(--lightgray);
+  }
+  
+  h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--darkgray);
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

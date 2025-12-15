@@ -8,7 +8,7 @@ const ArticleTitle: QuartzComponent = (props: QuartzComponentProps) => {
   
   if (title) {
     // Only show download button on the index page (home page)
-    const isIndex = fileData.slug === "index"
+    const isIndex = fileData.slug === "Resume"
     
     if (isIndex) {
       const ResumeDownloadComponent = ResumeDownload()
