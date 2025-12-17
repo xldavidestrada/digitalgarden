@@ -4,7 +4,7 @@ title: Resume
 
 # Software Development Manager
 
-> **Software Development Manager** with **10+ years of experience** leading cross-functional teams to deliver scalable enterprise applications, AI-powered solutions, and process automation. Proven record in modernizing legacy systems, driving Agile transformations, and delivering business value across fintech, consulting, and enterprise SaaS domains.
+> **Technical Leader** and **Solutions Architect** with over 10 years of experience bridging the gap between client business goals and technical execution. Adept at designing scalable end-to-end architectures while mentoring high-performing teams and overseeing hands-on development to ensure code quality. Proven track record in client consulting and strategic planning, translating complex requirements into actionable roadmaps. Passionate about continuous improvement, leveraging emerging tech to solve problems, and standardizing engineering processes for long-term scalability
 
 <div class="skills-container">
 
@@ -211,10 +211,6 @@ _05/2010 - 05/2015 | Clark, Pampanga_
 ## Engineering Philosophy
 
 > "Great software is not just about code; it's about people, processes, and solving real problems efficiently."
-
-- **Leadership**: I believe in servant leadership, empowering teams to take ownership and grow.
-- **Architecture**: I advocate for clean, maintainable architecture that scales with business needs, not just hype.
-- **Quality**: Automated testing and CI/CD are non-negotiable for sustainable delivery.
 
 <!-- ## Testimonials
 
